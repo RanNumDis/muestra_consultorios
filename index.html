@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Tu Estudio | Consultoría Psicológica Profesional</title>
+  <!-- Google Fonts + Font Awesome 6 -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #ffffff;
+      color: #2c3e2f;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --primary: #6c9e7c;
+      --primary-dark: #528a62;
+      --secondary: #f2efe7;
+      --accent: #d9c7a7;
+      --text-dark: #1e2a23;
+      --text-light: #5e6b5e;
+      --bg-light: #fefcf8;
+      --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 12px 28px rgba(0, 0, 0, 0.05);
+      --radius: 1.2rem;
+      --radius-card: 1rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    h1, h2, h3 {
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 3rem;
+      line-height: 1.2;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
+    }
+    h2:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: var(--primary);
+      border-radius: 3px;
+    }
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-header h2:after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: var(--primary);
+      color: white;
+      padding: 0.9rem 2rem;
+      border-radius: 40px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      white-space: nowrap;
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--primary);
+      color: var(--primary);
+    }
+    .btn-outline:hover {
+      background: var(--primary);
+      color: white;
+    }
+    .btn-small {
+      padding: 0.5rem 1.2rem;
+      font-size: 0.85rem;
+    }
+    .btn:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(108,158,124,0.2);
+    }
+    .btn-whatsapp {
+      background-color: #25D366;
+      border-color: #25D366;
+    }
+    .btn-whatsapp:hover {
+      background-color: #128C7E;
+    }
+
+    /* HEADER */
+    header {
+      background: white;
+      box-shadow: var(--shadow-sm);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(2px);
+      background: rgba(255,255,255,0.96);
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      flex-wrap: wrap;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    .logo-img {
+      height: 48px;
+      width: auto;
+      display: block;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--primary);
+    }
+    .menu-icon {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--text-dark);
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #f9f7f2 0%, #edf3ea 100%);
+      padding: 4rem 0;
+    }
+    .hero-grid {
+      display: block;
+    }
+    .hero-content {
+      max-width: 700px;
+      text-align: left;
+    }
+    .hero-logo {
+      margin-bottom: 1.5rem;
+    }
+    .hero-logo .logo-img {
+      height: 70px;
+      width: auto;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      margin: 1.2rem 0 2rem;
+    }
+    .hero-buttons {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    @media (max-width: 800px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+    }
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.7rem;
+      }
+      .hero-buttons {
+        gap: 0.6rem;
+      }
+      .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+        white-space: nowrap;
+      }
+      .hero-logo .logo-img {
+        height: 55px;
+      }
+    }
+    @media (max-width: 480px) {
+      .btn {
+        padding: 0.45rem 0.8rem;
+        font-size: 0.7rem;
+      }
+      .hero-buttons {
+        gap: 0.4rem;
+      }
+    }
+
+    /* Nosotros */
+    .nosotros-grid {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .nosotros-text {
+      flex: 1;
+    }
+    .nosotros-text p {
+      margin-bottom: 1.2rem;
+      color: var(--text-light);
+    }
+    .social-links {
+      margin-top: 1.8rem;
+      display: flex;
+      gap: 1rem;
+    }
+    .social-links a {
+      background: #eef2ea;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-dark);
+      font-size: 1.2rem;
+      transition: 0.2s;
+      text-decoration: none;
+    }
+    .social-links a:hover {
+      background: var(--primary);
+      color: white;
+    }
+    .nosotros-img {
+      flex: 1;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .nosotros-img img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      min-height: 320px;
+    }
+
+    /* Servicios cards */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    .service-card {
+      background: white;
+      border-radius: var(--radius-card);
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.25s;
+      border: 1px solid #f0ede5;
+      display: flex;
+      flex-direction: column;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: #d9e0d5;
+    }
+    .service-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    .service-card h3 {
+      margin: 1rem 0 0.8rem;
+    }
+    .service-card p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      flex-grow: 1;
+      margin-bottom: 1.5rem;
+    }
+    .service-card .btn-whatsapp {
+      align-self: center;
+      background-color: #25D366;
+      color: white;
+      margin-top: 0.5rem;
+    }
+    .service-card .btn-whatsapp:hover {
+      background-color: #128C7E;
+    }
+
+    /* Ubicación y Contacto */
+    .location-card {
+      background: var(--bg-light);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      box-shadow: var(--shadow-sm);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .map-container {
+      margin-bottom: 1.8rem;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      height: 280px;
+    }
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .address-block p {
+      margin: 0.7rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+    .location-card h3 {
+      margin: 1.5rem 0 1rem 0;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .location-card h3:first-of-type {
+      margin-top: 0;
+    }
+    .social-links-center {
+      justify-content: center;
+      margin-top: 1.8rem;
+    }
+
+    footer {
+      background: #1e2a23;
+      color: #cdd9cf;
+      padding: 2rem 0;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 850px) {
+      .menu-icon {
+        display: block;
+      }
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        flex-direction: column;
+        background: white;
+        width: 80%;
+        max-width: 300px;
+        height: calc(100vh - 70px);
+        box-shadow: 2px 0 20px rgba(0,0,0,0.05);
+        padding: 2rem 1.5rem;
+        transition: 0.3s ease;
+        gap: 1.8rem;
+        align-items: flex-start;
+        z-index: 99;
+      }
+      .nav-links.active {
+        left: 0;
+      }
+      .navbar {
+        position: relative;
+      }
+      section {
+        padding: 3rem 0;
+      }
+      .nosotros-grid {
+        flex-direction: column;
+      }
+      .location-card {
+        margin: 0 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <div class="navbar">
+      <!-- Logo en header: reemplazar src por el logo definitivo -->
+      <div class="logo">
+        <img src="https://placehold.co/180x50/528a62/ffffff?text=Tu+Estudio" alt="Tu Estudio" class="logo-img">
+      </div>
+      <div class="menu-icon" id="menuToggle">
+        <i class="fas fa-bars"></i>
+      </div>
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto-ubicacion">Ubicación & Contacto</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <!-- Logo en hero: reemplazar src por el logo definitivo -->
+        <div class="hero-logo">
+          <img src="https://placehold.co/240x80/6c9e7c/ffffff?text=Tu+Estudio" alt="Tu Estudio" class="logo-img">
+        </div>
+        <h1>Espacio para tu<br> salud mental</h1>
+        <p>Te acompañamos en tu proceso de autoconocimiento y sanación. Terapia profesional, empática y con resultados.</p>
+        <div class="hero-buttons">
+          <a href="https://wa.me/5493415551234?text=Hola%2C%20quisiera%20consultar%20sobre%20terapia%20psicológica" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Consultanos</a>
+          <a href="#servicios" class="btn-outline btn"><i class="fas fa-question-circle"></i> ¿Qué hacemos?</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nosotros Section -->
+  <section id="nosotros">
+    <div class="container">
+      <div class="section-header">
+        <h2>Sobre nosotros</h2>
+        <p style="color: #5e6b5e; max-width: 700px; margin: 0.5rem auto 0;">Acompañamiento ético y cercano para tu bienestar psicológico</p>
+      </div>
+      <div class="nosotros-grid">
+        <div class="nosotros-text">
+          <p><strong>En Tu Estudio creemos que la salud mental es la base de una vida plena.</strong> Somos un equipo de psicólogos con enfoque humanista e integrativo, con amplia experiencia en terapia individual, de pareja y familiar.</p>
+          <p>Nuestro espacio ofrece un ambiente cálido, confidencial y libre de juicios. Trabajamos desde la evidencia científica pero con calidez humana, adaptando cada proceso a tus necesidades únicas.</p>
+          <div class="social-links">
+            <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://wa.me/5493415551234?text=Hola%2C%20quisiera%20consultar" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        <!-- Imagen en Nosotros -->
+        <div class="nosotros-img">
+          <img src="nosotros.png" alt="Consultorio de psicología">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Section -->
+  <section id="servicios" style="background-color: #fafaf7;">
+    <div class="container">
+      <div class="section-header">
+        <h2>Servicios profesionales</h2>
+        <p>Abordajes adaptados a cada etapa de la vida</p>
+      </div>
+      <div class="cards-grid">
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-user"></i></div>
+          <h3>Terapia Individual</h3>
+          <p>Acompañamiento para ansiedad, depresión, autoestima, estrés o crecimiento personal.</p>
+          <a href="https://wa.me/5493415551234?text=Hola%2C%20quisiera%20consultar%20sobre%20TERAPIA%20INDIVIDUAL" target="_blank" class="btn btn-whatsapp btn-small"><i class="fab fa-whatsapp"></i> Consultar</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-heart"></i></div>
+          <h3>Terapia de Pareja</h3>
+          <p>Espacio para mejorar la comunicación, resolver conflictos y fortalecer el vínculo.</p>
+          <a href="https://wa.me/5493415551234?text=Hola%2C%20quisiera%20consultar%20sobre%20TERAPIA%20DE%20PAREJA" target="_blank" class="btn btn-whatsapp btn-small"><i class="fab fa-whatsapp"></i> Consultar</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-child"></i></div>
+          <h3>Psicología Infantil</h3>
+          <p>Atención lúdica para niños y adolescentes, manejo de emociones y conductas.</p>
+          <a href="https://wa.me/5493415551234?text=Hola%2C%20quisiera%20consultar%20sobre%20PSICOLOGÍA%20INFANTIL" target="_blank" class="btn btn-whatsapp btn-small"><i class="fab fa-whatsapp"></i> Consultar</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-users"></i></div>
+          <h3>Terapia Familiar</h3>
+          <p>Abordaje sistémico para mejorar la dinámica y los vínculos familiares.</p>
+          <a href="https://wa.me/5493415551234?text=Hola%2C%20quisiera%20consultar%20sobre%20TERAPIA%20FAMILIAR" target="_blank" class="btn btn-whatsapp btn-small"><i class="fab fa-whatsapp"></i> Consultar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ubicación y Contacto -->
+  <section id="contacto-ubicacion">
+    <div class="container">
+      <div class="section-header">
+        <h2>Ubicación y contacto</h2>
+        <p>Visítanos o contáctanos para agendar tu primera consulta</p>
+      </div>
+      <div class="location-card">
+        <div class="map-container">
+          <iframe 
+            src="https://maps.google.com/maps?q=C%C3%B3rdoba%201234%2C%20Rosario%2C%20Santa%20Fe&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+            title="mapa consultorio psicología en Rosario" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+        </div>
+        <h3><i class="fas fa-location-dot"></i> Nuestro espacio</h3>
+        <div class="address-block">
+          <p><i class="fas fa-map-pin"></i> Córdoba 1234, Piso 2, Oficina 3, Rosario, Santa Fe</p>
+          <p><i class="fas fa-city"></i> Rosario, Santa Fe, Argentina</p>
+          <p><i class="fas fa-phone-alt"></i> +54 341 555 1234</p>
+          <p><i class="fas fa-envelope"></i> contacto@tuestudio.com</p>
+          <p><i class="fab fa-whatsapp"></i> +54 9 341 555 1234 (solo mensajes)</p>
+        </div>
+        <div class="social-links social-links-center">
+          <a href="#" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://wa.me/5493415551234?text=Hola%2C%20quisiera%20agendar%20una%20consulta" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© 2025 Tu Estudio - Consultorio de Psicología. Todos los derechos reservados.</p>
+    <p style="margin-top: 0.5rem; font-size: 0.8rem;">Acompañamiento psicológico profesional · Ética y confidencialidad</p>
+  </div>
+</footer>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+  }
+
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('active');
+    });
+  });
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === "#" || targetId === "") return;
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        e.preventDefault();
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        history.pushState(null, null, targetId);
+      }
+    });
+  });
+
+  const sections = document.querySelectorAll('section[id]');
+  const navItems = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    const scrollPos = window.scrollY + 120;
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+        current = section.getAttribute('id');
+      }
+    });
+    navItems.forEach(link => {
+      link.classList.remove('active');
+      const href = link.getAttribute('href').substring(1);
+      if (href === current) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
+</body>
+</html>
